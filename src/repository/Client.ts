@@ -1,4 +1,4 @@
-import { IClient } from "../models/Client.model."
+import { IClient } from "../models/Client.model"
 
 export interface IClientRepository {
     create(client: IClient): Promise<IClient>;
