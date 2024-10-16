@@ -27,9 +27,7 @@ export class VehicleController {
     }
 
     applyDiscount = async (req: Request, res: Response) => {
-        const { id, discount } = req.body; // Recibir id del vehículo y el descuento
-
-            const updatedVehicle = this.vehicleService.applyDiscount(id, discount);
-            res.status(200).json(updatedVehicle);
+        const updatedVehicle = await this.vehicleService.applyDiscount(req.params.id, req.body);
+        res.status(201).json(updatedVehicle);
     }
 }

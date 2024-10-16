@@ -10,8 +10,8 @@ const router = Router()
 const vehicleMongoRepository = new MongoDBVehicleRepository();
 const vehiclePostgresRepository = new PostgresVehicleRepository();
 
-// const vehicleService = new VehicleService(vehiclePostgresRepository);
-const vehicleService = new ExtendedVehicleService(vehiclePostgresRepository);
+// ! const vehicleService = new VehicleService(vehiclePostgresRepository);
+const vehicleService = new ExtendedVehicleService(vehicleMongoRepository);
 const vehicleController = new VehicleController(vehicleService);
 
 vehicleController
@@ -19,6 +19,7 @@ vehicleController
 router.get("/vehicle/:id", vehicleController.find)
 router.post("/vehicle", vehicleController.create)
 router.put("/vehicle/:id", vehicleController.update)
+router.put("/price/:id", vehicleController.applyDiscount)
 router.delete("/vehicle/:id", vehicleController.delete)
 
 export default router
