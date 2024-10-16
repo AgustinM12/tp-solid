@@ -3,7 +3,8 @@ import cors from "cors"
 import morgan from "morgan"
 import { env } from "../types/types"
 import { PORT } from "../config/config"
-
+import clientRoutes from "../routes/client.routes"
+import vehicleRoutes from "../routes/vehicle.routes"
 
 export class Server {
     private app: Application;
@@ -23,7 +24,8 @@ export class Server {
     }
 
     routes(): void {
-        // this.app.use("/api");
+        this.app.use("/api", clientRoutes);
+        this.app.use("/api", vehicleRoutes);
     }
 
     listen(): void {

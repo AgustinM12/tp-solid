@@ -16,3 +16,5 @@ router.get("/vehicle/:id", vehicleController.find)
 router.post("/vehicle", vehicleController.create)
 router.put("/vehicle/:id", vehicleController.update)
 router.delete("/vehicle/:id", vehicleController.delete)
+
+export default router

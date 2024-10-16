@@ -3,7 +3,13 @@ import { ClientService } from "../services/Client.services";
 import { Request, Response } from "express";
 
 export class ClientController {
-    constructor(private clientService: ClientService) {}
+    constructor(private clientService: ClientService) {
+        // Enlazar las funciones al contexto de la clase
+        this.create = this.create.bind(this);
+        this.find = this.find.bind(this);
+        this.update = this.update.bind(this);
+        this.delete = this.delete.bind(this);
+    }
 
     async create(req: Request, res: Response) {
         const client = await this.clientService.createClient(req.body);

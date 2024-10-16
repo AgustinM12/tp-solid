@@ -1,4 +1,4 @@
-import { IClientRepository } from "../repository/Client";
+import { IClientRepository } from "../repository/Client.repository";
 import { IClient } from "../models/Client.model";
 
 export class ClientService {
