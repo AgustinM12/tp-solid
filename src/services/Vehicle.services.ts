@@ -19,9 +19,4 @@ export class VehicleService {
     async deleteVehicle(id: string): Promise<void> {
         await this.vehicleRepository.delete(id);
     }
-
-    applyDiscount(vehicle: IVehicle, discount: number): IVehicle {
-        vehicle.price -= discount;
-        return vehicle;
-    }
 }

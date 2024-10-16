@@ -29,7 +29,7 @@ export class MongoDBVehicleRepository implements IVehicleRepository {
     }
 
     async delete(id: string): Promise<void> {
-        this.vehicles.filter(client => client.id !== id)
+        this.vehicles.filter(client => client.id === id)
         return console.log("Se elimino un cliente");
     }
 }
