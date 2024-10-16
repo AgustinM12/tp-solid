@@ -30,7 +30,7 @@ export class PostgresSQLVehicleRepository implements IClientRepository {
     }
 
     async delete(id: string): Promise<void> {
-        this.clients.filter(client => client.id === id)
-        return console.log("Se elimino un cliente");
+        this.clients = this.clients.filter(client => client.id !== id);
+        return;
     }
 }

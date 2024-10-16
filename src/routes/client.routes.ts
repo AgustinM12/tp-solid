@@ -6,10 +6,10 @@ import { PostgresSQLVehicleRepository } from "../db/PostgresSQL/PostgresSQL.clie
 
 const router = Router()
 
-const clientMongoRepository = new MongoDBClientRepository();
+// ! const clientMongoRepository = new MongoDBClientRepository();
 const clientPostgresRepository = new PostgresSQLVehicleRepository();
 
-const clientService = new ClientService(clientMongoRepository);
+const clientService = new ClientService(clientPostgresRepository);
 const clientController = new ClientController(clientService);
 
 router.get("/client/:id", clientController.find)

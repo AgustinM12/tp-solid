@@ -29,7 +29,8 @@ export class MongoDBClientRepository implements IClientRepository {
     }
 
     async delete(id: string): Promise<void> {
-        this.clients.filter(client => client.id === id)
-        return 
+        this.clients = this.clients.filter(client => client.id !== id);
+        return;
     }
+    
 }
